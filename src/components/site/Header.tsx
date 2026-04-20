@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
   { href: "#categories", label: "Categories" },
@@ -26,12 +27,16 @@ export const Header = () => {
           ))}
         </nav>
         <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           <Button variant="ghost" size="sm">Sign in</Button>
           <Button variant="hero" size="sm">Post a job</Button>
         </div>
-        <button onClick={() => setOpen(!open)} className="md:hidden p-2" aria-label="Menu">
-          <Menu className="h-5 w-5" />
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button onClick={() => setOpen(!open)} className="p-2" aria-label="Menu">
+            <Menu className="h-5 w-5" />
+          </button>
+        </div>
       </div>
       {open && (
         <div className="md:hidden border-t border-border/40 bg-background">
